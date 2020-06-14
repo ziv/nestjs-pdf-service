@@ -1,12 +1,17 @@
-import { Controller, Get } from '@nestjs/common';
-import { AppService } from './app.service';
+import { Body, Controller, Get, Post } from '@nestjs/common';
+import { CreatePdf, PdfService } from './pdf';
 
 @Controller()
 export class AppController {
-  constructor(private readonly appService: AppService) {}
+  constructor(private readonly pdfService: PdfService) {}
 
   @Get()
-  getHello(): string {
-    return this.appService.getHello();
+  health(): string {
+    return 'OK';
+  }
+
+  @Post('/create')
+  async create(@Body() createPdf: CreatePdf) {
+    return this.pdfService.create(createPdf);
   }
 }
