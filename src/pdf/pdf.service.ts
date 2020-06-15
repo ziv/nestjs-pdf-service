@@ -4,7 +4,6 @@ import * as puppeteer from 'puppeteer';
 
 @Injectable()
 export class PdfService {
-
   async create(pdf: CreatePdf) {
     try {
       const browser = await puppeteer.launch({ headless: true, args: ['--no-sandbox', '--disable-setuid-sandbox'] });
