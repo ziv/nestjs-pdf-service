@@ -1,5 +1,7 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import { Body, Controller, Get, Header, Post, Res, UsePipes, ValidationPipe } from '@nestjs/common';
 import { CreatePdf, PdfService } from './pdf';
+import { Response } from 'express';
+import { buffer2stream } from './utils';
 
 @Controller()
 export class AppController {
@@ -11,7 +13,10 @@ export class AppController {
   }
 
   @Post('/create')
-  async create(@Body() createPdf: CreatePdf) {
-    return this.pdfService.create(createPdf);
+  @UsePipes(new ValidationPipe())
+  @Header('Cache-Control', 'no-store')
+  @Header('Content-Type', 'application/pdf')
+  async create(@Body() createPdf: CreatePdf, @Res() res: Response) {
+    buffer2stream(await this.pdfService.create(createPdf)).pipe(res);
   }
 }
