@@ -1,5 +1,6 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { PdfService } from './pdf.service';
+import '../tests/to-be-pdf';
 
 describe('PdfService', () => {
   let service: PdfService;
@@ -14,5 +15,9 @@ describe('PdfService', () => {
 
   it('should be defined', () => {
     expect(service).toBeDefined();
+  });
+
+  it('should create valid PDF', async () => {
+    expect(await service.create({html: '<div>test</div>'})).toBePDF();
   });
 });

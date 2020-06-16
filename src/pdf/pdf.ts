@@ -6,6 +6,7 @@ export class CreatePdf {
   @IsNotEmpty()
   html: string;
 
+  // todo add validation
   @IsOptional()
   options?: PDFOptions;
 }
