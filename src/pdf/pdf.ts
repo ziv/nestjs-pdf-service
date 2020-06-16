@@ -7,5 +7,5 @@ export class CreatePdf {
   html: string;
 
   @IsOptional()
-  options: PDFOptions;
+  options?: PDFOptions;
 }
