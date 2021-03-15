@@ -25,6 +25,7 @@
     "@nestjs/core": "^7.0.0",
     "@nestjs/platform-express": "^7.0.0",
     "@types/puppeteer": "^3.0.0",
+    "elliptic": ">=6.5.4",
     "class-transformer": "^0.3.1",
     "class-validator": "^0.12.2",
     "nodemon": "^2.0.4",
