@@ -27,7 +27,7 @@
     "@types/puppeteer": "^3.0.0",
     "class-transformer": "^0.3.1",
     "class-validator": "^0.12.2",
-    "nodemon": "^2.0.4",
+    "nodemon": "^2.0.20",
     "puppeteer": "^3.3.0",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
